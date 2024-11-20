@@ -1,91 +1,64 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Week 2 Gun Program</title>
-    <!--PUT YOUR NAME IN THE META TAG FOR AUTHOR-->
-    <meta name="author" content="Jourdyn Smalls">
-    <!--xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-->
-    <meta name="description" content="Small programming assignment using events, variables, functions and conditional logic">
+<meta charset="utf-8">
+<title> First HTML </title>
+<style type="text/css">
+{
+ font-family:Arial,Verdana,sans-serif;
+ border:35cm solid #bfa3eb;
+ border-color: rgb(112, 45, 189);
+}
+</style>
+<h1 style="border-color: rgb (112, 45, 189);">Welcome to My Bio Website</h1>
+<p style="color: "border:35cm solid #bfa3eb;" </p> 
+<!-- Colorized box border -->
+<h2 style="background-color:rgb(0,0,149, 212, 236); color:purple;padding:35px;text-align:center;">Welcome</h2>
+<h1 id="main heading" style="background-color:rgb(198, 181, 230); color:rgb(98, 127, 134);padding:10px;text-align:center;">Animals are life</h1>
+</style>
 </head>
 <body>
-    <!--Main content of the site-->
-    <div>
-        <!--Control and output for the "shoot" functionality-->
-        <div>
-            <button id="trigger-button">Trigger</button>
-            <span id="trigger-display"></span>
-        </div>
-        <!--Control and output for the "reload" functionality-->
-        <div>
-            <button id="reload-button">Reload</button>
-            <span id="reload-display"></span>
-        </div>
-    </div>
-    <script>
-        /*-----------------------------------
-        Project Description: 
-        In this assignment you will write the code to make the following happen:
-        1. Make the reload button clickable
-        2. When it is clicked your inventory will lose ammo
-        3. When it is clicked your gun will gain ammo
-        4. The inventory should never drop below 0
-        5. CHALLENGE: Can you make the correct number of ammo move from the inventory to the gun? For example if the ammo is at 4 and the max is 6 can you make only 2 subtract from inventory and add to ammo?
-        6. Display the resulting numbers in the span tags.
-        ------------------------------------*/
+<h1 id="main-heading"> Welcome to My Bio Website </h1>
+<H1> Jourdyn Smalls </H1>
+<H2> My Bio </H2>
+<p> Hello, my name is Jourdyn. There really not much to talk about me. I love drawing since a child, the only thing I could afford at the time. 
+I started playing videos at the age 11, got a lot hate from all the males in my family. I grow up at GA, rise and born there. 
+I used to have two amazing cute doggies and even a cat that sadly got run over by a car, I cry for 5 months. I'm not really good at introducing myself to people.
+I am mostly ani-socail, somehow I do have friends, I honestly don't remeber how that happen. My family always wanted me to be a doctor or in the military. I come from a line of military familys memebers.
+from my mother sad, there only two female grandkids, I am the middle child and second oldest of 7 siblings. My mother only had three childran, my birth father only has three babies mamma, three wiht my mother two with the second woman and two with the last one for now.
+Yes, I get along with all my siblings but don't really hang out or care for them. Ours feelings to each other is normal (we're chill with each other.) My life is not interesting at all.
+I grow up poor, took a long long road to make money and work hard at every job I had. I always love animals. When my mother was finally able to afford a dog. The dog name is Blue and he a jack terror Russell I think pure breed.
+The animail pound was about to put him down because Blue didn't like any dogs. Highly cute and vicious but smalls. My sister wasd a huge brat and wanted a dog right there and than and we pick blue to save his life from dying.
+Since we had that Blue, he hated kids,as we grow older over time. Blue surprisingly started loving us. As a child with a cute little dog, who ate all my 30 collections teddys bears. Which I was sad but got over it.
+I grow up with many problems but didn't care too much because at the end I turn out fine as a adult. I just don't really know how to talk about myself so yeah....</p>
 
-        //stores the <button> and <span> elements in variables by selecting the the elements by their id attribute. The # is used when referencing an element's id
-        var triggerButton = document.querySelector(`#trigger-button`)
-        var triggerDisplay = document.querySelector(`#trigger-display`)
-        var reloadButton = document.querySelector(`#reload-button`)
-        var reloadDisplay = document.querySelector(`#reload-display`)
+<!--using image -->
 
-        //Variables used to set up the gun and inventory values
-        //Maximum amount of ammo the weapon can hold
-        var max = 5
-        //Amount of ammo currently loaded into the weapon
-        var currentAmmo = max
-        //Amount of ammo in the character's inventory
-        var inventory = 20
+<h1 id="main heading" style="background-color:rgb(200, 400, 600);"> <img src="image/Kitty.jpg" width="213" height="216" border="0" alt=" " /> </h1>
 
-        //Changes the words between <span> and </span> for each span element
-        triggerDisplay.innerHTML = `AMMO: ${currentAmmo}`
-        reloadDisplay.innerHTML = `INVENTORY: ${inventory}`
+<H2> Schooling </H2>
+<p> I been to five different colleges, three in Georgia and two in Rhode Island. I chose New England tech to gi8ve it a try. So for it better than the other colleges I went to. Before you asked. Yes, I only took 2 classes,
+I only been in the collehes for one semsters.The last school that I went to was Gwinnett Techical College. I move from it because they claim my GPA wasn't enough for the major I wanted.
+And try to get me to take a nurse major instead. They didn't teach me anything.</p>
 
-        /*
-        Adds functionality to the button so that when it is clicked it will execute the shoot function
-        */
-        triggerButton.addEventListener(`click`, shoot)
+<!-- Link to College-->
+<h3> Visit the <a href="https://gwinnetttech.edu/">The Gwinnett Tech College Home Page </a> Offical Website.</h3>
 
-        /*
-        When the shoot function is executed by a user/player clicking the trigger button:
-         1. currentAmmo is subtracted by one
-         2. if currentAmmo is less than zero, it is set back to zero
-         3. The triggerDisplay text is updated to show the latest value for currentAmmo
-         NOTE: the "event" placeholder variable in the parenthesis needs to be there for a function to work when it is executed by a  click or any other type of event listener.
-        */
-        function shoot(event)
-        {
-            currentAmmo--
-            if(currentAmmo<5)
-            {
-                currentAmmo = 10;
-            }
-            triggerDisplay.innerHTML = `AMMO: ${currentAmmo}`
-        }
+<!-- Using Image-->
+<img src="image/College.png" width="700" height="200" border="3" alt=" "/>
 
-        /*------------------INSTRUCTIONS------------------
-        Using the code above as a guide, try to make the reload button work below this comment.
-        1. Add an event listener to it that calls a function when clicked
-        2. Within the function do the following
-            a. Subtract ammo from the inventory
-            b. Add ammo to the currentAmmo
-            d. Stop inventory from going into the negative numbers
-            c. Display the result on in the reloadDisplay by changing it's innerHTML
-            d. EXTRA CHALLENGE: Figure out how much ammo to load. This will require some math based on how much ammo has been expended and the maximum amount ammo the weapon can hold
-        --------------------------------------------------*/
-    </script>
+<H5> Hobbies </H5>
+<p>I love drawing monsters and scary things. I love hunting and camping with friends.Love playing videogames with or without friends. Sometimes when hangout with some friends we start playing D&D.
+love animals, mostly cats I may be called a crazy cat person and love animals too much. My hobbies are not interesting. I'm pretty much a basics person. And my favorite color is bloody red. </p>
+<P> </P>5
+<BR>
+<HR />
+
+<!-- Love Animals -->
+<b>I love animals</b>
+<br>
+<hr />
+
 </body>
 </html>
